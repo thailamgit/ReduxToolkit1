@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { quotesApi } from "../services/quotesApi";
 import counterReducer from '../features/counter/counterSlice'
+import { getDefaultNormalizer } from "@testing-library/dom";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
-    }
+        counter: counterReducer,
+        [quotesApi.reducerPath]: quotesApi.reducer
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(quotesApi.middleware),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
