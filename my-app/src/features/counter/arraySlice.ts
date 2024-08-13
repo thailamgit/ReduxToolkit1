@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 interface ArrayState {
-    arr: number[]
+    arr: string[]
 }
 
 const initialState: ArrayState = ({
@@ -13,7 +13,7 @@ const arraySlice = createSlice({
     initialState,
     reducers: {
         addArray: (state) => {
-            state.arr.push(state.arr.length)
+            state.arr.push('a')
         },
         removeArray: (state) => {
             state.arr.push

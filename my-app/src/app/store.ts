@@ -2,10 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { quotesApi } from "../services/quotesApi";
 import counterReducer from '../features/counter/counterSlice'
 import arrayReducer from '../features/counter/arraySlice'
-import { getDefaultNormalizer } from "@testing-library/dom";
-
+import todoReducer from '../features/todos/todoSlice'
 export const store = configureStore({
     reducer: {
+        todos: todoReducer,
         counter: counterReducer,
         array: arrayReducer,
         [quotesApi.reducerPath]: quotesApi.reducer
